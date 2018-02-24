@@ -59,20 +59,17 @@ if (!empty($_REQUEST['language'])) {
     }
 }
 
-function get_permalink() {
-    if ($permalink) {
-        return $imgurl;
+if ($permalink) {
+    $lien =  $imgurl;
+} else {
+    if (isset($_REQUEST['language'])) {
+        $lien =  "https://rcgp.nsa.ovh/?language=" . $_REQUEST['language'] . "&img=" . $imagearr[0];
     } else {
-        if (isset($_REQUEST['language'])) {
-            return "https://rcgp.nsa.ovh/?language=" . $_REQUEST['language'] . "&img=" . $imagearr[0];
-        } else {
-            return "https://rcgp.nsa.ovh/?img=" . $imagearr[0];
-        }
+        $lien =  "https://rcgp.nsa.ovh/?img=" . $imagearr[0];
     }
 }
 
 header("X-OriginalLocation: ".$imgurl);
-$lien = get_permalink();
 $facebook_link  = 'https://www.facebook.com/sharer/sharer.php?u='.$lien;
 $twitter_link  = 'http://twitter.com/share?url=' . $lien . '&text=RCGP';
 $diaspora_link = 'http://sharetodiaspora.github.io/?url=' . $lien . '&title=RCGP';
