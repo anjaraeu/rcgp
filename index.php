@@ -1,5 +1,11 @@
 <?php
 header("X-Author: skid9000 & leonekmi");
+$lien = get_permalink();
+$titre = strip_tags(get_the_title());
+$facebook_link  = 'https://www.facebook.com/sharer/sharer.php?u=' . $lien ;
+$twitter_link  = 'http://twitter.com/share?url=' . $lien . '&text=' . $titre ;
+$diaspora_link = 'http://sharetodiaspora.github.io/?url=' . $lien . '&title=' . $titre ;
+$mail_link = 'mailto:?subject=' . $titre . '&body=' . $titre . ' - ' . $lien ;
 
 if (isset($_REQUEST['language'])) {
     $languages = scandir("imgs");
@@ -35,6 +41,10 @@ if (isset($_REQUEST['language'])) {
 
 header("X-OriginalLocation: ".$imgurl);
 
+
+    
+
+
 ?>
 <!doctype html>
 <html>
@@ -69,6 +79,21 @@ header("X-OriginalLocation: ".$imgurl);
      ?>
 
 </select>
+<div class="partage">
+<div class="titre">Partager</div>
+<ul>
+    <li>Mail</li>
+</ul>
+<ul>
+    <li>Twitter</li>
+</ul>
+<ul>
+    <li>Facebook</li>
+</ul>
+<ul>
+	<li>Diaspora*</li>
+</ul>
+</div>
 <script src="https://nocdn.nsa.ovh/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="select.js"></script>
 </body>
