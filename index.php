@@ -1,5 +1,5 @@
 <?php
-header("X-Author: skid9000");
+header("X-Author: skid9000 & leonekmi");
 
 if (isset($_REQUEST['language'])) {
     $languages = scandir("imgs");
