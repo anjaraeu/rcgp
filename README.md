@@ -6,4 +6,4 @@
 
 <a href="https://puush.tuto-craft.com/rcgp.gif"><img src="https://puush.tuto-craft.com/rcgp.gif"></a>
  
-### Pull Requests to add pictures are welcome :)
+### Pull Requests to add pictures or resolving issues are welcome :)
