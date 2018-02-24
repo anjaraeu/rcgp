@@ -7,8 +7,8 @@ if (language_select != null) {
 $('#language').change(function () {
     var language = $('#language').val();
     if (language == "default") {
-        document.location.href = "/"
+        document.location.href = '/';
     } else {
-        document.location.href = "/?language=" + language
+        document.location.href = '/?language=' + language;
     };
 });
