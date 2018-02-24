@@ -34,18 +34,27 @@ if (isset($_REQUEST['language'])) {
         $imgurl = "https://rcgp.nsa.ovh/imgs/".strtolower($_REQUEST["language"])."/".$imagearr[0];
     }
 } else {
-    $imagearr = scandir("img");
-    // Avoid . and ..
-    unset($imagearr[0]);
-    unset($imagearr[1]);
+    if (isset($_REQUEST['img'])) {
+        if (!file_exists("imgs/".strtolower($_REQUEST["language"])."/".$_REQUEST['img'])) {
+            http_response_code(404);
+            exit("L'image demandée n'existe plus ou a été renommée, merci de contacter l'équipe de nsa.ovh si vous pensez que c'est une erreur");
+        } else {
+            $imgurl = "https://rcgp.nsa.ovh/img/".$_REQUEST['img'];
+        }
+    } else {
+        $imagearr = scandir("img");
+        // Avoid . and ..
+        unset($imagearr[0]);
+        unset($imagearr[1]);
 
-    shuffle($imagearr);
-    shuffle($imagearr);
-    // YEAH ENTROPY
+        shuffle($imagearr);
+        shuffle($imagearr);
+        // YEAH ENTROPY
 
-    // skid pète les couilles readfile("img/".$imagearr[0]);
+        // skid pète les couilles readfile("img/".$imagearr[0]);
 
-    $imgurl = "https://rcgp.nsa.ovh/img/".$imagearr[0];
+        $imgurl = "https://rcgp.nsa.ovh/img/".$imagearr[0];
+    }
 }
 
 header("X-OriginalLocation: ".$imgurl);
