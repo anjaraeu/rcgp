@@ -63,14 +63,10 @@ if (!empty($_REQUEST['language'])) {
     }
 }
 
-if ($permalink) {
-    $lien =  $imgurl;
+if (!empty($_REQUEST['language'])) {
+    $lien = "https://rcgp.nsa.ovh/?language=" . $_REQUEST['language'] . "&img=" . $imagename;
 } else {
-    if (!empty($_REQUEST['language'])) {
-        $lien =  "https://rcgp.nsa.ovh/?language=" . $_REQUEST['language'] . "&img=" . $imagearr[0];
-    } else {
-        $lien =  "https://rcgp.nsa.ovh/?img=" . $imagearr[0];
-    }
+    $lien = "https://rcgp.nsa.ovh/?img=" . $imagename;
 }
 
 header("X-OriginalLocation: ".$imgurl);
@@ -95,6 +91,10 @@ if (!$permalink) {
 <meta name="twitter:title" content="RCGP - Random Cute Girls Programming">
 <meta name="twitter:description" content="Random image of CGP generator">
 <meta name="twitter:image" content="https://rcgp.nsa.ovh/img/1492870106236.jpg">
+<meta name="og:title" content="RCGP - Random Cute Girls Programming">
+<meta name="og:type" content="website">
+<meta name="og:image" content="https://rcgp.nsa.ovh/img/1492870106236.jpg">
+<meta name="og:url" content="https://rcgp.nsa.ovh/">
     <?php
 } else {
     if (empty($_REQUEST['language'])) {
@@ -105,6 +105,10 @@ if (!$permalink) {
 <meta name="twitter:title" content="RCGP - Random Cute Girls Programming">
 <meta name="twitter:description" content="<?php echo $imagename ?>">
 <meta name="twitter:image" content="https://rcgp.nsa.ovh/img/<?php echo $imagename;?>">
+<meta name="og:title" content="RCGP - Random Cute Girls Programming">
+<meta name="og:type" content="website">
+<meta name="og:image" content="https://rcgp.nsa.ovh/img/<?php echo $imagename;?>">
+<meta name="og:url" content="<?php echo $lien; ?>">
         <?php
     } else {
         ?>
@@ -114,6 +118,10 @@ if (!$permalink) {
 <meta name="twitter:title" content="RCGP - Random Cute Girls Programming">
 <meta name="twitter:description" content="<?php echo $imagename ?>">
 <meta name="twitter:image" content="https://rcgp.nsa.ovh/imgs/<?php echo $_REQUEST['language']; ?>/<?php echo $imagename;?>">
+<meta name="og:title" content="RCGP - Random Cute Girls Programming">
+<meta name="og:type" content="website">
+<meta name="og:image" content="https://rcgp.nsa.ovh/imgs/<?php echo $_REQUEST['language']; ?>/<?php echo $imagename;?>">
+<meta name="og:url" content="<?php echo $lien; ?>">
         <?php
     }
 }
