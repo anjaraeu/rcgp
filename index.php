@@ -164,7 +164,14 @@ if (!$permalink) {
 <ul>
 	<a href="<?php echo $diaspora_link; ?>"><li>Diaspora*</li></a>
 </ul>
+<ul>
+    <div id="mastodon-share"></div>
+</ul>
 </div>
+<script src="https://raw.githubusercontent.com/deadblackclover/mastodon-share/master/src/index.js"></script>
+<script>
+  getMessageMastodon("Test share button!");
+</script>
 <script src="https://nocdn.nsa.ovh/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="select.js"></script>
 </body>
