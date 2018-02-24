@@ -74,10 +74,10 @@ if ($permalink) {
 }
 
 header("X-OriginalLocation: ".$imgurl);
-$facebook_link  = 'https://www.facebook.com/sharer/sharer.php?u='.$lien;
-$twitter_link  = 'http://twitter.com/share?url=' . $lien . '&text=RCGP';
-$diaspora_link = 'http://sharetodiaspora.github.io/?url=' . $lien . '&title=RCGP';
-$mail_link = 'mailto:?subject=RCGP&body=RCGP - ' . $lien;
+$facebook_link  = 'https://www.facebook.com/sharer/sharer.php?u='.urlencode($lien);
+$twitter_link  = 'http://twitter.com/share?url=' . urlencode($lien) . '&text=RCGP';
+$diaspora_link = 'http://sharetodiaspora.github.io/?url=' . urlencode($lien) . '&title=RCGP';
+$mail_link = 'mailto:?subject=RCGP&body=RCGP - ' . urlencode($lien);
 
 ?>
 <!doctype html>
