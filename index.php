@@ -66,7 +66,7 @@ if (!empty($_REQUEST['language'])) {
 if ($permalink) {
     $lien =  $imgurl;
 } else {
-    if (isset($_REQUEST['language'])) {
+    if (!empty($_REQUEST['language'])) {
         $lien =  "https://rcgp.nsa.ovh/?language=" . $_REQUEST['language'] . "&img=" . $imagearr[0];
     } else {
         $lien =  "https://rcgp.nsa.ovh/?img=" . $imagearr[0];
@@ -86,12 +86,38 @@ $mail_link = 'mailto:?subject=RCGP&body=RCGP - ' . urlencode($lien);
 <title>RCGP - Random Cute Girls Programming</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php
+if (!$permalink) {
+    ?>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@nsaovh">
 <meta name="twitter:creator" content="@skid9000">
 <meta name="twitter:title" content="RCGP - Random Cute Girls Programming">
 <meta name="twitter:description" content="Random image of CGP generator">
 <meta name="twitter:image" content="https://rcgp.nsa.ovh/img/1492870106236.jpg">
+    <?php
+} else {
+    if (empty($_REQUEST['language'])) {
+        ?>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@nsaovh">
+<meta name="twitter:creator" content="@skid9000">
+<meta name="twitter:title" content="RCGP - Random Cute Girls Programming">
+<meta name="twitter:description" content="<?php echo $imagename ?>">
+<meta name="twitter:image" content="https://rcgp.nsa.ovh/img/<?php echo $imagename;?>">
+        <?php
+    } else {
+        ?>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@nsaovh">
+<meta name="twitter:creator" content="@skid9000">
+<meta name="twitter:title" content="RCGP - Random Cute Girls Programming">
+<meta name="twitter:description" content="<?php echo $imagename ?>">
+<meta name="twitter:image" content="https://rcgp.nsa.ovh/imgs/<?php echo $_REQUEST['language']; ?>/<?php echo $imagename;?>">
+        <?php
+    }
+}
+?>
 <link rel="stylesheet" href="style.css">
 </head>
 
