@@ -1,7 +1,5 @@
 <?php
 
-header("Content-type: image/png");
-
 if (isset($_REQUEST['language'])) {
     $languages = scandir("imgs");
     unset($languages[0]);
@@ -18,6 +16,7 @@ if (isset($_REQUEST['language'])) {
     shuffle($imagearr);
     // YEAH ENTROPY
 
+    header("Content-type: " . mime_content_type("imgs/".strtolower($_REQUEST["language"])."/".$imagearr[0]));
     header("X-Author: skid9000 & leonekmi");
     header("X-OriginalLocation: https://rcgp.nsa.ovh/imgs/".strtolower($_REQUEST["language"])."/".$imagearr[0]);
 
@@ -32,6 +31,7 @@ if (isset($_REQUEST['language'])) {
     shuffle($imagearr);
     // YEAH ENTROPY
 
+    header("Content-type: " . mime_content_type("img/".$imagearr[0]));
     header("X-Author: skid9000 & leonekmi");
     header("X-OriginalLocation: https://rcgp.nsa.ovh/img/".$imagearr[0]);
 

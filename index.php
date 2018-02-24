@@ -48,19 +48,7 @@ header("X-OriginalLocation: ".$imgurl);
 <meta name="twitter:title" content="RCGP - Random Cute Girls Programming">
 <meta name="twitter:description" content="Random image of CGP generator">
 <meta name="twitter:image" content="https://rcgp.nsa.ovh/img/1492870106236.jpg">
-<style>
-body {
-	background-color: #515151;
-}
-a {
-	color: #e0e0e0;
-}
-img {
-	object-fit: contain;
-	max-width: 100%;
-	height: auto;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -68,7 +56,7 @@ img {
 <img src="<?php echo $imgurl; ?>">
 <p><?php echo $imagearr[0]; ?></p>
 </a>
-<p style="font-size: 10px; color: #e0e0e0;">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</p>
+<p class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</p>
 <select id="language">
     <option value="default" selected>All (Default)</option>
     <?php

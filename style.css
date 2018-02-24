@@ -1,0 +1,15 @@
+body {
+	background-color: #515151;
+}
+a {
+	color: #e0e0e0;
+}
+img {
+	object-fit: contain;
+	max-width: 100%;
+	height: auto;
+}
+.credits {
+    font-size: 10px;
+    color: #e0e0e0;
+}
