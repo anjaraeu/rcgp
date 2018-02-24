@@ -1,8 +1,12 @@
 <?php
 header("X-Author: skid9000 & leonekmi");
 
-if (isset($_REQUEST['language'])) {
-    if (isset($_REQUEST['img'])) {
+$permalink;
+$imagearr;
+$imgurl;
+
+if (!empty($_REQUEST['language'])) {
+    if (!empty($_REQUEST['img'])) {
         if (!file_exists("imgs/".strtolower($_REQUEST["language"])."/".$_REQUEST['img'])) {
             http_response_code(404);
             exit("L'image demandée n'existe plus ou a été renommée, merci de contacter l'équipe de nsa.ovh si vous pensez que c'est une erreur");
@@ -30,7 +34,7 @@ if (isset($_REQUEST['language'])) {
         $permalink = false;
     }
 } else {
-    if (isset($_REQUEST['img'])) {
+    if (!empty($_REQUEST['img'])) {
         if (!file_exists("img/".$_REQUEST['img'])) {
             http_response_code(404);
             exit("L'image demandée n'existe plus ou a été renommée, merci de contacter l'équipe de nsa.ovh si vous pensez que c'est une erreur");
