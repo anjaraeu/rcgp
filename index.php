@@ -168,7 +168,7 @@ if (!$permalink) {
     <li><div id="mastodon-share"></div></li>
 </ul>
 </div>
-<script src="https://raw.githubusercontent.com/deadblackclover/mastodon-share/master/src/index.js"></script>
+<script src="mastodon.js"></script>
 <script>
   getMessageMastodon("Test share button!");
 </script>
