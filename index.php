@@ -92,6 +92,7 @@ if (!$permalink) {
 <meta name="twitter:description" content="Random image of CGP generator">
 <meta name="twitter:image" content="https://rcgp.nsa.ovh/img/1492870106236.jpg">
 <meta property="og:title" content="RCGP - Random Cute Girls Programming">
+<meta property="og:description" content="Random image of CGP generator">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://rcgp.nsa.ovh/img/1492870106236.jpg">
 <meta property="og:url" content="https://rcgp.nsa.ovh/">
@@ -106,6 +107,7 @@ if (!$permalink) {
 <meta name="twitter:description" content="<?php echo $imagename ?>">
 <meta name="twitter:image" content="https://rcgp.nsa.ovh/img/<?php echo $imagename;?>">
 <meta property="og:title" content="RCGP - Random Cute Girls Programming">
+<meta property="og:description" content="<?php echo $imagename ?>">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://rcgp.nsa.ovh/img/<?php echo $imagename;?>">
 <meta property="og:url" content="<?php echo $lien; ?>">
@@ -119,6 +121,7 @@ if (!$permalink) {
 <meta name="twitter:description" content="<?php echo $imagename ?>">
 <meta name="twitter:image" content="https://rcgp.nsa.ovh/imgs/<?php echo $_REQUEST['language']; ?>/<?php echo $imagename;?>">
 <meta property="og:title" content="RCGP - Random Cute Girls Programming">
+<meta property="og:description" content="<?php echo $imagename ?>">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://rcgp.nsa.ovh/imgs/<?php echo $_REQUEST['language']; ?>/<?php echo $imagename;?>">
 <meta property="og:url" content="<?php echo $lien; ?>">
