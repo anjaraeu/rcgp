@@ -12,6 +12,7 @@ if (!empty($_REQUEST['language'])) {
             exit("L'image demandée n'existe plus ou a été renommée, merci de contacter l'équipe de nsa.ovh si vous pensez que c'est une erreur");
         } else {
             $permalink = true;
+            $imagename = $_REQUEST['img'];
             $imgurl = "https://rcgp.nsa.ovh/imgs/".strtolower($_REQUEST["language"])."/".$_REQUEST['img'];
         }
     } else {
@@ -30,6 +31,7 @@ if (!empty($_REQUEST['language'])) {
         shuffle($imagearr);
         // YEAH ENTROPY
 
+        $imagename = $imagearr[0];
         $imgurl = "https://rcgp.nsa.ovh/imgs/".strtolower($_REQUEST["language"])."/".$imagearr[0];
         $permalink = false;
     }
@@ -40,6 +42,7 @@ if (!empty($_REQUEST['language'])) {
             exit("L'image demandée n'existe plus ou a été renommée, merci de contacter l'équipe de nsa.ovh si vous pensez que c'est une erreur");
         } else {
             $imgurl = "https://rcgp.nsa.ovh/img/".$_REQUEST['img'];
+            $imagename = $_REQUEST['img'];
             $permalink = true;
         }
     } else {
@@ -54,6 +57,7 @@ if (!empty($_REQUEST['language'])) {
 
         // skid pète les couilles readfile("img/".$imagearr[0]);
 
+        $imagename = $imagearr[0];
         $imgurl = "https://rcgp.nsa.ovh/img/".$imagearr[0];
         $permalink = false;
     }
@@ -94,7 +98,7 @@ $mail_link = 'mailto:?subject=RCGP&body=RCGP - ' . $lien;
 <body>
 <a href="<?php echo $imgurl; ?>">
 <img src="<?php echo $imgurl; ?>">
-<p><?php echo $imagearr[0]; ?></a> / <a href="<?php echo $lien; ?>">Permalien (pour le partage)</a></p>
+<p><?php echo $imagename; ?></a> / <a href="<?php echo $lien; ?>">Permalien (pour le partage)</a></p>
 <p class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</p>
 <select id="language">
     <option value="default" selected>All (Default)</option>
