@@ -164,9 +164,9 @@ if (!$permalink) {
 <ul>
 	<a href="<?php echo $diaspora_link; ?>"><li>Diaspora*</li></a>
 </ul>
-<ul>
-    <li><div id="mastodon-share"></div></li>
-</ul>
+<!--<ul>
+    <li>--><div id="mastodon-share"></div><!--</li>
+</ul>-->
 </div>
 <script src="mastodon.js"></script>
 <script>
