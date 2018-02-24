@@ -35,7 +35,7 @@ if (isset($_REQUEST['language'])) {
     }
 } else {
     if (isset($_REQUEST['img'])) {
-        if (!file_exists("imgs/".strtolower($_REQUEST["language"])."/".$_REQUEST['img'])) {
+        if (!file_exists("img/".$_REQUEST['img'])) {
             http_response_code(404);
             exit("L'image demandée n'existe plus ou a été renommée, merci de contacter l'équipe de nsa.ovh si vous pensez que c'est une erreur");
         } else {
