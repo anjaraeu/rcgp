@@ -1,11 +1,11 @@
 <?php
 header("X-Author: skid9000 & leonekmi");
-$lien = get_permalink();
-$titre = strip_tags(get_the_title());
-$facebook_link  = 'https://www.facebook.com/sharer/sharer.php?u=' . $lien ;
-$twitter_link  = 'http://twitter.com/share?url=' . $lien . '&text=' . $titre ;
-$diaspora_link = 'http://sharetodiaspora.github.io/?url=' . $lien . '&title=' . $titre ;
-$mail_link = 'mailto:?subject=' . $titre . '&body=' . $titre . ' - ' . $lien ;
+// $lien = get_permalink();
+// $titre = strip_tags(get_the_title());
+$facebook_link  = 'https://www.facebook.com/sharer/sharer.php?u=https://rcgp.nsa.ovh' ;
+$twitter_link  = 'http://twitter.com/share?url=https://rcgp.nsa.ovh&text=RCGP' ;
+$diaspora_link = 'http://sharetodiaspora.github.io/?url=https://rcgp.nsa.ovh&title=RCGP' ;
+$mail_link = 'mailto:?subject=RCGP&body=RCGP - https://rcgp.nsa.ovh' ;
 
 if (isset($_REQUEST['language'])) {
     $languages = scandir("imgs");
@@ -82,16 +82,16 @@ header("X-OriginalLocation: ".$imgurl);
 <div class="partage">
 <div class="titre">Partager</div>
 <ul>
-    <li>Mail</li>
+    <a href="<?php echo $mail_link; ?>"><li>Mail</li></a>
 </ul>
 <ul>
-    <li>Twitter</li>
+    <a href="<?php echo $twitter_link; ?>"><li>Twitter</li></a>
 </ul>
 <ul>
-    <li>Facebook</li>
+    <a href="<?php echo $facebook_link; ?>"><li>Facebook</li></a>
 </ul>
 <ul>
-	<li>Diaspora*</li>
+	<a href="<?php echo $diaspora_link; ?>"><li>Diaspora*</li></a>
 </ul>
 </div>
 <script src="https://nocdn.nsa.ovh/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
