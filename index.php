@@ -8,22 +8,31 @@ $diaspora_link = 'http://sharetodiaspora.github.io/?url=https://rcgp.nsa.ovh&tit
 $mail_link = 'mailto:?subject=RCGP&body=RCGP - https://rcgp.nsa.ovh' ;
 
 if (isset($_REQUEST['language'])) {
-    $languages = scandir("imgs");
-    unset($languages[0]);
-    unset($languages[1]);
+    if (isset($_REQUEST['img'])) {
+        if (!file_exists("imgs/".strtolower($_REQUEST["language"])."/".$_REQUEST['img'])) {
+            http_response_code(404);
+            exit("L'image demandée n'existe plus ou a été renommée, merci de contacter l'équipe de nsa.ovh si vous pensez que c'est une erreur");
+        } else {
+            $imgurl = "https://rcgp.nsa.ovh/imgs/".strtolower($_REQUEST["language"])."/".$_REQUEST['img'];
+        }
+    } else {
+        $languages = scandir("imgs");
+        unset($languages[0]);
+        unset($languages[1]);
 
-    if (!in_array(strtolower($_REQUEST["language"]), $languages)) {
-        exit("lol t kon ou koa la katégori exist pa");
+        if (!in_array(strtolower($_REQUEST["language"]), $languages)) {
+            exit("lol t kon ou koa la katégori exist pa");
+        }
+
+        $imagearr = scandir("imgs/".strtolower($_REQUEST["language"]));
+        unset($imagearr[0]);
+        unset($imagearr[1]);
+        shuffle($imagearr);
+        shuffle($imagearr);
+        // YEAH ENTROPY
+
+        $imgurl = "https://rcgp.nsa.ovh/imgs/".strtolower($_REQUEST["language"])."/".$imagearr[0];
     }
-
-    $imagearr = scandir("imgs/".strtolower($_REQUEST["language"]));
-    unset($imagearr[0]);
-    unset($imagearr[1]);
-    shuffle($imagearr);
-    shuffle($imagearr);
-    // YEAH ENTROPY
-
-    $imgurl = "https://rcgp.nsa.ovh/imgs/".strtolower($_REQUEST["language"])."/".$imagearr[0];
 } else {
     $imagearr = scandir("img");
     // Avoid . and ..
@@ -40,10 +49,6 @@ if (isset($_REQUEST['language'])) {
 }
 
 header("X-OriginalLocation: ".$imgurl);
-
-
-    
-
 
 ?>
 <!doctype html>
