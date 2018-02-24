@@ -1,11 +1,5 @@
 <?php
 header("X-Author: skid9000 & leonekmi");
-// $lien = get_permalink();
-// $titre = strip_tags(get_the_title());
-$facebook_link  = 'https://www.facebook.com/sharer/sharer.php?u=https://rcgp.nsa.ovh' ;
-$twitter_link  = 'http://twitter.com/share?url=https://rcgp.nsa.ovh&text=RCGP' ;
-$diaspora_link = 'http://sharetodiaspora.github.io/?url=https://rcgp.nsa.ovh&title=RCGP' ;
-$mail_link = 'mailto:?subject=RCGP&body=RCGP - https://rcgp.nsa.ovh' ;
 
 if (isset($_REQUEST['language'])) {
     if (isset($_REQUEST['img'])) {
@@ -13,6 +7,7 @@ if (isset($_REQUEST['language'])) {
             http_response_code(404);
             exit("L'image demandée n'existe plus ou a été renommée, merci de contacter l'équipe de nsa.ovh si vous pensez que c'est une erreur");
         } else {
+            $permalink = true;
             $imgurl = "https://rcgp.nsa.ovh/imgs/".strtolower($_REQUEST["language"])."/".$_REQUEST['img'];
         }
     } else {
@@ -32,6 +27,7 @@ if (isset($_REQUEST['language'])) {
         // YEAH ENTROPY
 
         $imgurl = "https://rcgp.nsa.ovh/imgs/".strtolower($_REQUEST["language"])."/".$imagearr[0];
+        $permalink = false;
     }
 } else {
     if (isset($_REQUEST['img'])) {
@@ -40,6 +36,7 @@ if (isset($_REQUEST['language'])) {
             exit("L'image demandée n'existe plus ou a été renommée, merci de contacter l'équipe de nsa.ovh si vous pensez que c'est une erreur");
         } else {
             $imgurl = "https://rcgp.nsa.ovh/img/".$_REQUEST['img'];
+            $permalink = true;
         }
     } else {
         $imagearr = scandir("img");
@@ -54,10 +51,28 @@ if (isset($_REQUEST['language'])) {
         // skid pète les couilles readfile("img/".$imagearr[0]);
 
         $imgurl = "https://rcgp.nsa.ovh/img/".$imagearr[0];
+        $permalink = false;
+    }
+}
+
+function get_permalink() {
+    if ($permalink) {
+        return $imgurl;
+    } else {
+        if (isset($_REQUEST['language'])) {
+            return "https://rcgp.nsa.ovh/?language=" . $_REQUEST['language'] . "&img=" . $imagearr[0];
+        } else {
+            return "https://rcgp.nsa.ovh/?img=" . $imagearr[0];
+        }
     }
 }
 
 header("X-OriginalLocation: ".$imgurl);
+$lien = get_permalink();
+$facebook_link  = 'https://www.facebook.com/sharer/sharer.php?u='.$lien;
+$twitter_link  = 'http://twitter.com/share?url=' . $lien . '&text=RCGP';
+$diaspora_link = 'http://sharetodiaspora.github.io/?url=' . $lien . '&title=RCGP';
+$mail_link = 'mailto:?subject=RCGP&body=RCGP - ' . $lien;
 
 ?>
 <!doctype html>
@@ -78,8 +93,7 @@ header("X-OriginalLocation: ".$imgurl);
 <body>
 <a href="<?php echo $imgurl; ?>">
 <img src="<?php echo $imgurl; ?>">
-<p><?php echo $imagearr[0]; ?></p>
-</a>
+<p><?php echo $imagearr[0]; ?></a> / <a href="<?php echo $lien; ?>">Permalien (pour le partage)</a></p>
 <p class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</p>
 <select id="language">
     <option value="default" selected>All (Default)</option>
@@ -93,6 +107,7 @@ header("X-OriginalLocation: ".$imgurl);
      ?>
 
 </select>
+<br/>
 <div class="partage">
 <div class="titre">Partager</div>
 <ul>
