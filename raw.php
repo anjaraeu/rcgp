@@ -1,0 +1,39 @@
+<?php
+
+header("Content-type: image/png");
+
+if (isset($_REQUEST['language'])) {
+    $languages = scandir("imgs");
+    unset($languages[0]);
+    unset($languages[1]);
+
+    if (!in_array(strtolower($_REQUEST["language"]), $languages)) {
+        exit("lol t kon ou koa la katégori exist pa");
+    }
+
+    $imagearr = scandir("imgs/".strtolower($_REQUEST["language"]));
+    unset($imagearr[0]);
+    unset($imagearr[1]);
+    shuffle($imagearr);
+    shuffle($imagearr);
+    // YEAH ENTROPY
+
+    header("X-Author: skid9000");
+    header("X-OriginalLocation: https://rcgp.nsa.ovh/imgs/".strtolower($_REQUEST["language"])."/".$imagearr[0]);
+
+    readfile("img/".$imagearr[0]);
+} else {
+    $imagearr = scandir("img");
+    // Avoid . and ..
+    unset($imagearr[0]);
+    unset($imagearr[1]);
+
+    shuffle($imagearr);
+    shuffle($imagearr);
+    // YEAH ENTROPY
+
+    header("X-Author: skid9000");
+    header("X-OriginalLocation: https://rcgp.nsa.ovh/img/".$imagearr[0]);
+
+    readfile("img/".$imagearr[0]);
+}
