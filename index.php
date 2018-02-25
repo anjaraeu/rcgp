@@ -134,10 +134,12 @@ if (!$permalink) {
 </head>
 
 <body>
+<a href="https://github.com/nsaovh"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+<center>
 <a href="<?php echo $imgurl; ?>">
 <img src="<?php echo $imgurl; ?>">
 <p><?php echo $imagename; ?></a> / <a href="<?php echo $lien; ?>">Permalien (pour le partage)</a></p>
-<p class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</p>
+<p>Access the <a href="https://community.rcgp.nsa.ovh">RCGP community</a> to submit images and discuss about Random Cute Girls Programming !</p>
 <select id="language">
     <option value="default" selected>All (Default)</option>
     <?php
@@ -148,8 +150,8 @@ if (!$permalink) {
             ?><option value="<?php echo $value; ?>"><?php echo $value; ?></option><?php
         }
      ?>
-
 </select>
+<br/>
 <br/>
 <div class="partage">
 <div class="titre">Partager</div>
@@ -169,6 +171,9 @@ if (!$permalink) {
     <a href="<?php echo $mastodon_link; ?>"><li>Mastodon</li></a>
 </ul>
 </div>
+<br/>
+<p class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</p>
+</center>
 <script src="https://nocdn.nsa.ovh/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="select.js"></script>
 </body>
