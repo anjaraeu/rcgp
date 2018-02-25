@@ -132,6 +132,7 @@ if (!$permalink) {
 ?>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="dropdown.min.css">
+<link rel="stylesheet" href="transition.min.css">
 </head>
 
 <body>
@@ -176,6 +177,7 @@ if (!$permalink) {
 <p class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</p>
 </center>
 <script src="https://nocdn.nsa.ovh/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="transition.min.js"></script>
 <script src="dropdown.min.js"></script>
 <script src="select.js"></script>
 </body>
