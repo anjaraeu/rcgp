@@ -4,9 +4,9 @@ var language_select = url.searchParams.get("language");
 $('#language').dropdown();
 if (language_select != null) {
     $('#language').dropdown('set selected', language_select);
-}
+};
 $('#language')
-  .dropdown({
+  .dropdown('setting', {
       onChange: function (value, text, choice) {
           var language = value;
           if (language == "default") {
