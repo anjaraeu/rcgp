@@ -14,15 +14,5 @@ $('#language')
   })
 ;
 if (language_select != null) {
-    $('#language').val(language_select);
+    $('#language').dropdown('set selected', language_select);
 }
-/*
-$('#language').change(function () {
-    var language = $('#language').val();
-    if (language == "default") {
-        document.location.href = '/';
-    } else {
-        document.location.href = '/?language=' + language;
-    };
-});
-*/

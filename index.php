@@ -130,8 +130,8 @@ if (!$permalink) {
         }
     }
 ?>
-<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="semantic.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
