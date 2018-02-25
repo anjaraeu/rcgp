@@ -99,38 +99,39 @@ if (!$permalink) {
 <meta property="og:url" content="https://rcgp.nsa.ovh/">
     <?php
 } else {
-    if (empty($_REQUEST['language'])) {
-        ?>
+        if (empty($_REQUEST['language'])) {
+            ?>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@nsaovh">
 <meta name="twitter:creator" content="@skid9000">
 <meta name="twitter:title" content="RCGP - Random Cute Girls Programming">
 <meta name="twitter:description" content="<?php echo $imagename ?>">
-<meta name="twitter:image" content="https://rcgp.nsa.ovh/img/<?php echo $imagename;?>">
+<meta name="twitter:image" content="https://rcgp.nsa.ovh/img/<?php echo $imagename; ?>">
 <meta property="og:title" content="RCGP - Random Cute Girls Programming">
 <meta property="og:description" content="<?php echo $imagename ?>">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://rcgp.nsa.ovh/img/<?php echo $imagename;?>">
+<meta property="og:image" content="https://rcgp.nsa.ovh/img/<?php echo $imagename; ?>">
 <meta property="og:url" content="<?php echo $lien; ?>">
         <?php
-    } else {
-        ?>
+        } else {
+            ?>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@nsaovh">
 <meta name="twitter:creator" content="@skid9000">
 <meta name="twitter:title" content="RCGP - Random Cute Girls Programming">
 <meta name="twitter:description" content="<?php echo $imagename ?>">
-<meta name="twitter:image" content="https://rcgp.nsa.ovh/imgs/<?php echo $_REQUEST['language']; ?>/<?php echo $imagename;?>">
+<meta name="twitter:image" content="https://rcgp.nsa.ovh/imgs/<?php echo $_REQUEST['language']; ?>/<?php echo $imagename; ?>">
 <meta property="og:title" content="RCGP - Random Cute Girls Programming">
 <meta property="og:description" content="<?php echo $imagename ?>">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://rcgp.nsa.ovh/imgs/<?php echo $_REQUEST['language']; ?>/<?php echo $imagename;?>">
+<meta property="og:image" content="https://rcgp.nsa.ovh/imgs/<?php echo $_REQUEST['language']; ?>/<?php echo $imagename; ?>">
 <meta property="og:url" content="<?php echo $lien; ?>">
         <?php
+        }
     }
-}
 ?>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="dropdown.min.css">
 </head>
 
 <body>
@@ -175,6 +176,7 @@ if (!$permalink) {
 <p class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</p>
 </center>
 <script src="https://nocdn.nsa.ovh/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="dropdown.min.js"></script>
 <script src="select.js"></script>
 </body>
 
