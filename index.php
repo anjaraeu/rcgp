@@ -71,9 +71,9 @@ if (!empty($_REQUEST['language'])) {
 
 header("X-OriginalLocation: ".$imgurl);
 $facebook_link  = 'https://www.facebook.com/sharer/sharer.php?u='.urlencode($lien);
-$twitter_link  = 'http://twitter.com/share?url=' . urlencode($lien) . '&text=RCGP';
-$diaspora_link = 'http://sharetodiaspora.github.io/?url=' . urlencode($lien) . '&title=RCGP';
-$mail_link = 'mailto:?subject=RCGP&body=RCGP - ' . urlencode($lien);
+$twitter_link  = 'http://twitter.com/share?url=' . urlencode($lien) . '&text=Random%20Cute%20Girls%20Programming';
+$diaspora_link = 'http://sharetodiaspora.github.io/?url=' . urlencode($lien) . '&title=Random%20Cute%20Girls%20Programming';
+$mail_link = 'mailto:?subject=Random%20Cute%20Girls%20Programming&body=RCGP - ' . urlencode($lien);
 $mastodon_link = 'http://sharetomastodon.github.io/?url=' . urlencode($lien) . '&title=Random%20Cute%20Girls%20Programming';
 
 ?>
