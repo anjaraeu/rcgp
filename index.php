@@ -131,8 +131,7 @@ if (!$permalink) {
     }
 ?>
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="dropdown.min.css">
-<link rel="stylesheet" href="transition.min.css">
+<link rel="stylesheet" href="semantic.min.css">
 </head>
 
 <body>
@@ -142,7 +141,7 @@ if (!$permalink) {
 <img src="<?php echo $imgurl; ?>">
 <p><?php echo $imagename; ?></a> / <a href="<?php echo $lien; ?>">Permalien (pour le partage)</a></p>
 <p>Access the <a href="https://community.rcgp.nsa.ovh">RCGP community</a> to submit images and discuss about Random Cute Girls Programming !</p>
-<select id="language">
+<select id="language" class="ui dropdown">
     <option value="default" selected>All (Default)</option>
     <?php
         $imgsarr = scandir("imgs");
@@ -177,8 +176,7 @@ if (!$permalink) {
 <p class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</p>
 </center>
 <script src="https://nocdn.nsa.ovh/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="transition.min.js"></script>
-<script src="dropdown.min.js"></script>
+<script src="semantic.min.js"></script>
 <script src="select.js"></script>
 </body>
 
