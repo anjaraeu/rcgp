@@ -166,7 +166,7 @@ if (!$permalink) {
 	<a href="<?php echo $diaspora_link; ?>"><li>Diaspora*</li></a>
 </ul>
 <ul>
-    <a href="<?php echo $mastodon_link; ?>"><li></li></a>
+    <a href="<?php echo $mastodon_link; ?>"><li>Mastodon</li></a>
 </ul>
 </div>
 <script src="https://nocdn.nsa.ovh/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
