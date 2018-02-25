@@ -74,6 +74,7 @@ $facebook_link  = 'https://www.facebook.com/sharer/sharer.php?u='.urlencode($lie
 $twitter_link  = 'http://twitter.com/share?url=' . urlencode($lien) . '&text=RCGP';
 $diaspora_link = 'http://sharetodiaspora.github.io/?url=' . urlencode($lien) . '&title=RCGP';
 $mail_link = 'mailto:?subject=RCGP&body=RCGP - ' . urlencode($lien);
+$mastodon_link = 'http://sharetomastodon.github.io/?url=' . urlencode($lien) . '&title=Random%20Cute%20Girls%20Programming';
 
 ?>
 <!doctype html>
@@ -164,14 +165,10 @@ if (!$permalink) {
 <ul>
 	<a href="<?php echo $diaspora_link; ?>"><li>Diaspora*</li></a>
 </ul>
-<!--<ul>
-    <li>--><div id="mastodon-share"></div><!--</li>
-</ul>-->
+<ul>
+    <li></li>
+</ul>
 </div>
-<script src="mastodon.js"></script>
-<script>
-  getMessageMastodon("Test share button!");
-</script>
 <script src="https://nocdn.nsa.ovh/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="select.js"></script>
 </body>
