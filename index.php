@@ -132,6 +132,7 @@ if (!$permalink) {
 ?>
 <link rel="stylesheet" href="semantic.min.css">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="rcgp-css/rcgp-icons.css">
 </head>
 
 <body>
@@ -167,7 +168,7 @@ if (!$permalink) {
       <i class="facebook f icon"></i>
       Facebook
     </a>
-    <a href="<?php echo $diaspora_link; ?>" class="ui labeled icon button">
+    <a href="<?php echo $diaspora_link; ?>" class="ui labeled icon black button">
       <i class="rcgp-icon-diaspora icon"></i>
       Diaspora*
     </a>
