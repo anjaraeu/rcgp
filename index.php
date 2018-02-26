@@ -156,9 +156,9 @@ if (!$permalink) {
 <br/>
 <br/>
 <p>
-    <a href="javascript:;" onclick="window.open('<?php echo $mail_link; ?>','das','location=no,links=no,scrollbars=no,toolbar=no,width=620,height=550'); return false;" class="ui labeled icon yellow button">
+    <a href="<?php echo $mail_link; ?>" class="ui labeled icon yellow button">
       <i class="envelope icon"></i>
-      Mail
+      E-Mail
     </a>
     <a href="javascript:;" onclick="window.open('<?php echo $twitter_link; ?>','das','location=no,links=no,scrollbars=no,toolbar=no,width=620,height=550'); return false;" class="ui labeled icon twitter button">
       <i class="twitter icon"></i>
