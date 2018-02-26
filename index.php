@@ -154,24 +154,28 @@ if (!$permalink) {
 </select>
 <br/>
 <br/>
-<div class="partage">
-<div class="titre">Partager</div>
-<ul>
-    <a href="<?php echo $mail_link; ?>"><li>Mail</li></a>
-</ul>
-<ul>
-    <a href="<?php echo $twitter_link; ?>"><li>Twitter</li></a>
-</ul>
-<ul>
-    <a href="<?php echo $facebook_link; ?>"><li>Facebook</li></a>
-</ul>
-<ul>
-	<a href="<?php echo $diaspora_link; ?>"><li>Diaspora*</li></a>
-</ul>
-<ul>
-    <a href="<?php echo $mastodon_link; ?>"><li>Mastodon</li></a>
-</ul>
-</div>
+<p>
+    <a href="<?php echo $mail_link; ?>" class="ui labeled icon yellow button">
+      <i class="envelope icon"></i>
+      Mail
+    </a>
+    <a href="<?php echo $twitter_link; ?>" class="ui labeled icon twitter button">
+      <i class="twitter icon"></i>
+      Twitter
+    </a>
+    <a href="<?php echo $facebook_link; ?>" class="ui labeled icon facebook button">
+      <i class="facebook f icon"></i>
+      Facebook
+    </a>
+    <a href="<?php echo $diaspora_link; ?>" class="ui labeled icon button">
+      <i class="rcgp-icon-diaspora icon"></i>
+      Diaspora*
+    </a>
+    <a href="<?php echo $mastodon_link; ?>" class="ui labeled icon blue button">
+      <i class="rcgp-icon-mastodon icon"></i>
+      Mastodon
+    </a>
+</p>
 <br/>
 <p class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</p>
 </center>
