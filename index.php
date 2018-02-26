@@ -156,23 +156,23 @@ if (!$permalink) {
 <br/>
 <br/>
 <p>
-    <a href="<?php echo $mail_link; ?>" class="ui labeled icon yellow button">
+    <a href="javascript:;" onclick="window.open('<?php echo $mail_link; ?>','das','location=no,links=no,scrollbars=no,toolbar=no,width=620,height=550'); return false;" class="ui labeled icon yellow button">
       <i class="envelope icon"></i>
       Mail
     </a>
-    <a href="<?php echo $twitter_link; ?>" class="ui labeled icon twitter button">
+    <a href="javascript:;" onclick="window.open('<?php echo $twitter_link; ?>','das','location=no,links=no,scrollbars=no,toolbar=no,width=620,height=550'); return false;" class="ui labeled icon twitter button">
       <i class="twitter icon"></i>
       Twitter
     </a>
-    <a href="<?php echo $facebook_link; ?>" class="ui labeled icon facebook button">
+    <a href="javascript:;" onclick="window.open('<?php echo $facebook_link; ?>','das','location=no,links=no,scrollbars=no,toolbar=no,width=620,height=550'); return false;" class="ui labeled icon facebook button">
       <i class="facebook f icon"></i>
       Facebook
     </a>
-    <a href="<?php echo $diaspora_link; ?>" class="ui labeled icon black button">
+    <a href="javascript:;" onclick="window.open('<?php echo $diaspora_link; ?>','das','location=no,links=no,scrollbars=no,toolbar=no,width=620,height=550'); return false;" class="ui labeled icon black button">
       <i class="rcgp-icon-diaspora icon"></i>
       Diaspora*
     </a>
-    <a href="<?php echo $mastodon_link; ?>" class="ui labeled icon blue button">
+    <a href="javascript:;" onclick="window.open('<?php echo $mastodon_link; ?>','das','location=no,links=no,scrollbars=no,toolbar=no,width=620,height=550'); return false;" class="ui labeled icon blue button">
       <i class="rcgp-icon-mastodon icon"></i>
       Mastodon
     </a>
