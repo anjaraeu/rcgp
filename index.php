@@ -177,8 +177,7 @@ if (!$permalink) {
       Mastodon
     </a>
 </p>
-<br/>
-<p class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</p>
+<div class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</div>
 </center>
 <script src="https://nocdn.nsa.ovh/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="semantic.min.js"></script>
