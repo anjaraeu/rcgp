@@ -5,6 +5,6 @@
  * Demo : https://rcgp.nsa.ovh
  * Community / Submit images : https://community.rcgp.nsa.ovh
 
-<a href="https://puush.tuto-craft.com/demo-rcgp-git.gif"><img src="https://puush.tuto-craft.com/demo-rcgp-git.gif"></a>
+![](https://puush.tuto-craft.com/rcgp-demo-gif-2.gif)
 
 ### Pull Requests to add pictures or resolving issues are welcome :)
