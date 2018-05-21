@@ -33,7 +33,7 @@ if (isset($_REQUEST["language"])) {
 		echo json_encode($json, JSON_UNESCAPED_SLASHES + JSON_PRETTY_PRINT + JSON_UNESCAPED_UNICODE);
 	} else {
 		http_response_code(400);
-		echo json_encode("lol t kon ou koa la katégori exist pa", JSON_UNESCAPED_SLASHES + JSON_PRETTY_PRINT + JSON_UNESCAPED_UNICODE);
+		echo json_encode("Oops, looks like this category doesn't exist.", JSON_UNESCAPED_SLASHES + JSON_PRETTY_PRINT + JSON_UNESCAPED_UNICODE);
 	}
 } else {
 	$imagearr = scandir("../img");
