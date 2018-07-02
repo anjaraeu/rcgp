@@ -178,7 +178,7 @@ if (!$permalink) {
       Mastodon
     </a>
 </p>
-<div class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team</div>
+<div class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team.<br/>Majority of images are coming from <a href="https://github.com/MeyerHallot/Anime-Girls-Holding-Programming-Books" target="_blank">Anime-Girls-Holding-Programming-Books</a> GitHub repository.</div>
 </center>
 <script src="https://nocdn.nsa.ovh/cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="semantic.min.js"></script>
