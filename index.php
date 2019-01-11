@@ -142,7 +142,6 @@ if (!$permalink) {
 <img src="<?php echo $imgurl; ?>" alt="<?php echo $imagename; ?>">
 </a>
 <p><a href="<?php echo $imgurl; ?>"><?php echo $imagename; ?></a> / <a href="<?php echo $lien; ?>">Permalien (pour le partage)</a></p>
-<p>Access the <a href="https://community-rcgp.nsa.ovh">RCGP community</a> to submit images and discuss about Random Cute Girls Programming !</p>
 <select id="language" class="ui dropdown">
     <option value="default" selected>All (Default)</option>
     <?php
