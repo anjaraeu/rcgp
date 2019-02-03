@@ -2,9 +2,9 @@
 
 #### **Did you find a bug?**
 
-* **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/nsaovh/rcgp/issues).
+* **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/anjaraeu/rcgp/issues).
 
-* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/nsaovh/rcgp/issues/new). Be sure to include a **title and clear description**, as much relevant information as possible.
+* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/anjaraeu/rcgp/issues/new). Be sure to include a **title and clear description**, as much relevant information as possible.
 
 #### **Did you write a patch that fixes a bug?**
 
@@ -20,4 +20,4 @@
 
 Thanks!
 
-NsaOvh Team
+anjara.eu Team

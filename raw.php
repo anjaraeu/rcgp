@@ -1,5 +1,7 @@
 <?php
 
+require_once('config.php');
+
 if (isset($_REQUEST['language'])) {
     $languages = scandir("imgs");
     unset($languages[0]);
@@ -18,7 +20,7 @@ if (isset($_REQUEST['language'])) {
 
     header("Content-type: " . mime_content_type("imgs/".strtolower($_REQUEST["language"])."/".$imagearr[0]));
     header("X-Author: skid9000 & leonekmi");
-    header("X-OriginalLocation: https://rcgp.nsa.ovh/imgs/".strtolower($_REQUEST["language"])."/".$imagearr[0]);
+    header("X-OriginalLocation: " . $config['url'] . "/imgs/".strtolower($_REQUEST["language"])."/".$imagearr[0]);
 
     readfile("img/".$imagearr[0]);
 } else {
@@ -33,7 +35,7 @@ if (isset($_REQUEST['language'])) {
 
     header("Content-type: " . mime_content_type("img/".$imagearr[0]));
     header("X-Author: skid9000 & leonekmi");
-    header("X-OriginalLocation: https://rcgp.nsa.ovh/img/".$imagearr[0]);
+    header("X-OriginalLocation: " . $config['url'] . "/img/".$imagearr[0]);
 
     readfile("img/".$imagearr[0]);
 }

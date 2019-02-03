@@ -27,7 +27,7 @@ if (isset($_REQUEST["language"])) {
 		// YEAH ENTROPY
 
 		$json["category"] = strtolower($_REQUEST["language"]);
-		$json["imglink"] = "https://rcgp.nsa.ovh/imgs/".strtolower($_REQUEST["language"])."/".$imagearr[0];
+		$json["imglink"] = $config['url'] . "/imgs/".strtolower($_REQUEST["language"])."/".$imagearr[0];
 		$json["imgname"] = $imagearr[0];
 
 		echo json_encode($json, JSON_UNESCAPED_SLASHES + JSON_PRETTY_PRINT + JSON_UNESCAPED_UNICODE);
@@ -45,7 +45,7 @@ if (isset($_REQUEST["language"])) {
 	shuffle($imagearr);
 	// YEAH ENTROPY
 
-	$json["imglink"] = "https://rcgp.nsa.ovh/img/".$imagearr[0];
+	$json["imglink"] = $config['url'] . "/img/".$imagearr[0];
 	$json["imgname"] = $imagearr[0];
 
 	echo json_encode($json, JSON_UNESCAPED_SLASHES + JSON_PRETTY_PRINT + JSON_UNESCAPED_UNICODE);

@@ -1,6 +1,8 @@
 <?php
 header("X-Author: skid9000 & leonekmi");
 
+require_once('config.php');
+
 $permalink;
 $imagearr;
 $imgurl;
@@ -9,11 +11,11 @@ if (!empty($_REQUEST['language'])) {
     if (!empty($_REQUEST['img'])) {
         if (!file_exists("imgs/".strtolower($_REQUEST["language"])."/".$_REQUEST['img'])) {
             http_response_code(404);
-            exit("L'image demandée n'existe plus ou a été renommée, merci de contacter l'équipe de nsa.ovh si vous pensez que c'est une erreur");
+            exit("L'image demandée n'existe plus ou a été renommée, merci de contacter l'équipe si vous pensez que c'est une erreur");
         } else {
             $permalink = true;
             $imagename = $_REQUEST['img'];
-            $imgurl = "https://rcgp.nsa.ovh/imgs/".strtolower($_REQUEST["language"])."/".$_REQUEST['img'];
+            $imgurl = $config['url'] . "/imgs/".strtolower($_REQUEST["language"])."/".$_REQUEST['img'];
         }
     } else {
         $languages = scandir("imgs");
@@ -32,16 +34,16 @@ if (!empty($_REQUEST['language'])) {
         // YEAH ENTROPY
 
         $imagename = $imagearr[0];
-        $imgurl = "https://rcgp.nsa.ovh/imgs/".strtolower($_REQUEST["language"])."/".$imagearr[0];
+        $imgurl = $config['url'] . "/imgs/".strtolower($_REQUEST["language"])."/".$imagearr[0];
         $permalink = false;
     }
 } else {
     if (!empty($_REQUEST['img'])) {
         if (!file_exists("img/".$_REQUEST['img'])) {
             http_response_code(404);
-            exit("L'image demandée n'existe plus ou a été renommée, merci de contacter l'équipe de nsa.ovh si vous pensez que c'est une erreur");
+            exit("L'image demandée n'existe plus ou a été renommée, merci de contacter l'équipe si vous pensez que c'est une erreur");
         } else {
-            $imgurl = "https://rcgp.nsa.ovh/img/".$_REQUEST['img'];
+            $imgurl = $config['url'] . "/img/".$_REQUEST['img'];
             $imagename = $_REQUEST['img'];
             $permalink = true;
         }
@@ -58,15 +60,15 @@ if (!empty($_REQUEST['language'])) {
         // skid pète les couilles readfile("img/".$imagearr[0]);
 
         $imagename = $imagearr[0];
-        $imgurl = "https://rcgp.nsa.ovh/img/".$imagearr[0];
+        $imgurl = $config['url'] . "/img/".$imagearr[0];
         $permalink = false;
     }
 }
 
 if (!empty($_REQUEST['language'])) {
-    $lien = "https://rcgp.nsa.ovh/?language=" . $_REQUEST['language'] . "&img=" . $imagename;
+    $lien = $config['url'] . "/?language=" . $_REQUEST['language'] . "&img=" . $imagename;
 } else {
-    $lien = "https://rcgp.nsa.ovh/?img=" . $imagename;
+    $lien = $config['url'] . "/?img=" . $imagename;
 }
 
 header("X-OriginalLocation: ".$imgurl);
@@ -87,44 +89,44 @@ $mastodon_link = 'http://sharetomastodon.github.io/?url=' . urlencode($lien) . '
 if (!$permalink) {
     ?>
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@nsaovh">
+<meta name="twitter:site" content="@anjaraeu">
 <meta name="twitter:creator" content="@skid9000">
 <meta name="twitter:title" content="RCGP - Random Cute Girls Programming">
 <meta name="twitter:description" content="Random image of CGP generator">
-<meta name="twitter:image" content="https://rcgp.nsa.ovh/img/1492870106236.jpg">
+<meta name="twitter:image" content="<?php echo $config['url'] ?>/img/1492870106236.jpg">
 <meta property="og:title" content="RCGP - Random Cute Girls Programming">
 <meta property="og:description" content="Random image of CGP generator">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://rcgp.nsa.ovh/img/1492870106236.jpg">
-<meta property="og:url" content="https://rcgp.nsa.ovh/">
+<meta property="og:image" content="<?php echo $config['url'] ?>/img/1492870106236.jpg">
+<meta property="og:url" content="<?php echo $config['url'] ?>">
     <?php
 } else {
         if (empty($_REQUEST['language'])) {
             ?>
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@nsaovh">
+<meta name="twitter:site" content="@anjaraeu">
 <meta name="twitter:creator" content="@skid9000">
 <meta name="twitter:title" content="RCGP - Random Cute Girls Programming">
 <meta name="twitter:description" content="<?php echo $imagename ?>">
-<meta name="twitter:image" content="https://rcgp.nsa.ovh/img/<?php echo $imagename; ?>">
+<meta name="twitter:image" content="<?php echo $config['url'] ?>/img/<?php echo $imagename; ?>">
 <meta property="og:title" content="RCGP - Random Cute Girls Programming">
 <meta property="og:description" content="<?php echo $imagename ?>">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://rcgp.nsa.ovh/img/<?php echo $imagename; ?>">
+<meta property="og:image" content="<?php echo $config['url'] ?>/img/<?php echo $imagename; ?>">
 <meta property="og:url" content="<?php echo $lien; ?>">
         <?php
         } else {
             ?>
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@nsaovh">
+<meta name="twitter:site" content="@anjaraeu">
 <meta name="twitter:creator" content="@skid9000">
 <meta name="twitter:title" content="RCGP - Random Cute Girls Programming">
 <meta name="twitter:description" content="<?php echo $imagename ?>">
-<meta name="twitter:image" content="https://rcgp.nsa.ovh/imgs/<?php echo $_REQUEST['language']; ?>/<?php echo $imagename; ?>">
+<meta name="twitter:image" content="<?php echo $config['url'] ?>/imgs/<?php echo $_REQUEST['language']; ?>/<?php echo $imagename; ?>">
 <meta property="og:title" content="RCGP - Random Cute Girls Programming">
 <meta property="og:description" content="<?php echo $imagename ?>">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://rcgp.nsa.ovh/imgs/<?php echo $_REQUEST['language']; ?>/<?php echo $imagename; ?>">
+<meta property="og:image" content="<?php echo $config['url'] ?>/imgs/<?php echo $_REQUEST['language']; ?>/<?php echo $imagename; ?>">
 <meta property="og:url" content="<?php echo $lien; ?>">
         <?php
         }
@@ -136,7 +138,7 @@ if (!$permalink) {
 </head>
 
 <body>
-<a href="https://github.com/nsaovh/rcgp"><img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme.png" alt="Fork me on GitHub" data-canonical-src="forkme2.png"></a>
+<a href="https://github.com/anjaraeu/rcgp"><img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme.png" alt="Fork me on GitHub" data-canonical-src="forkme2.png"></a>
 <center>
 <a href="<?php echo $imgurl; ?>">
 <img src="<?php echo $imgurl; ?>" alt="<?php echo $imagename; ?>">
@@ -177,7 +179,7 @@ if (!$permalink) {
       Mastodon
     </a>
 </p>
-<div class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and NSA.OVH team.<br/>Majority of images are coming from <a href="https://github.com/MeyerHallot/Anime-Girls-Holding-Programming-Books" target="_blank">Anime-Girls-Holding-Programming-Books</a> GitHub repository.</div>
+<div class="credits">Powered by Tuto-Craft Corporation, nekmi corp software development and anjara.eu team.<br/>Majority of images are coming from <a href="https://github.com/MeyerHallot/Anime-Girls-Holding-Programming-Books" target="_blank">Anime-Girls-Holding-Programming-Books</a> GitHub repository.</div>
 </center>
 <script src="jquery.min.js"></script>
 <script src="semantic.min.js"></script>
