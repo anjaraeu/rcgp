@@ -132,7 +132,7 @@ $mastodon_link = 'https://sharetomastodon.github.io/?url=' . urlencode($lien) . 
 		?>
 		<link rel="stylesheet" href="assets/css/semantic.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
-		<link rel="stylesheet" href="assets/css/rcgp-css/rcgp-icons.css">
+		<link rel="stylesheet" href="assets/css/rcgp-icons.css">
 	</head>
 
 	<body>
