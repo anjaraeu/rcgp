@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'RCGP'),
+    'name' => env('APP_NAME', 'RCGP - Random Cute Girls Programming'),
 
     /*
     |--------------------------------------------------------------------------
