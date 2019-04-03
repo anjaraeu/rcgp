@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'RCGP'),
+    'name' => env('APP_NAME', 'RCGP - Random Cute Girls Programming'),
 
     /*
     |--------------------------------------------------------------------------
@@ -225,7 +225,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
     ],
 
 ];
