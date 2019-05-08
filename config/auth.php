@@ -41,8 +41,13 @@ return [
             'provider' => 'users',
         ],
 
+        // 'xhr' => [
+        //     'driver' => 'session',
+        //     'provider' => 'users',
+        // ],
+
         'api' => [
-            'driver' => 'token',
+            'driver' => 'session',
             'provider' => 'users',
             'hash' => false,
         ],

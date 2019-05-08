@@ -7,8 +7,9 @@
 
     <ul>
         <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/src">Sources of images</router-link></li>
-        <li><router-link to="/suggestion">Suggest an image</router-link></li>
+        <li><router-link to="/login">Login</router-link></li>
+        <li><router-link to="/new/image">New image</router-link></li>
+        <li><router-link to="/new/category">New category</router-link></li>
     </ul>
 
     <div class="ui container">

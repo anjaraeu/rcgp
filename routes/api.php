@@ -13,6 +13,17 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+// Route::group(['middleware' => ['auth:web']], function () {
+//     Route::post('/image', 'APIController@uploadImage');
+//     Route::post('/categories', 'APIController@createCategory');
+// });
+
+Route::get('/image', 'APIController@getRandomImage');
+Route::get('/image/{category}', 'APIController@getRandomImageFiltered');
+
+Route::get('/categories', 'APIController@getCategories');
+
