@@ -54,6 +54,8 @@ export default {
                 email: this.email,
                 password: this.password,
                 remember: (this.remember) ? true:null
+            }).then(res => {
+                this.user = {ok: true, name: res.data.name};
             });
         }
     },

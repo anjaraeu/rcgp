@@ -2,13 +2,13 @@
     <div class="ui segment">
         <form method="POST" class="ui form" @submit.prevent="submitForm" enctype="multipart/form-data">
             <div class="field">
-                <input type="text" name="name" placeholder="Name" v-model="dname">
+                <input type="text" name="name" placeholder="Name" v-model="dname" required>
             </div>
             <div class="ui message" v-if="nameconflict">
                 <strong>Warning!</strong> This category name already exists!
             </div>
             <div class="field">
-                <input type="text" name="slug" placeholder="Slug (URL)" v-model="slug">
+                <input type="text" name="slug" placeholder="Slug (URL)" v-model="slug" required>
             </div>
             <div class="ui message" v-if="slugconflict">
                 <strong>Warning!</strong> This category slug already exists!
@@ -28,7 +28,8 @@ export default {
             dname: '',
             slug: '',
             nameconflict: false,
-            slugconflict: false
+            slugconflict: false,
+            csrf: ''
         };
     },
 
@@ -40,7 +41,8 @@ export default {
             console.log($('.ui.form').serialize());
             axios.post('/api/categories', {
                 name: this.dname,
-                slug: this.slug
+                slug: this.slug,
+                _token: this.csrf
             }).then(res => {
                 this.categories.push(res.data);
                 new Noty({
@@ -86,6 +88,9 @@ export default {
         $('.ui.dropdown').dropdown();
         axios.get('/api/categories').then(res => {
             this.categories = res.data;
+        });
+        axios.get('/api/csrftoken').then(res => {
+            this.csrf = res.data.token;
         });
     }
 }

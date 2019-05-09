@@ -2,14 +2,14 @@
     <div class="ui segment">
         <form method="POST" class="ui form" @submit.prevent="submitForm" enctype="multipart/form-data">
             <div class="field">
-                <input type="file" accept="image/*" name="image" id="image" @change="loadImage">
+                <input type="file" accept="image/*" name="image" id="image" @change="loadImage" required>
             </div>
             <div class="field">
-                <input type="text" name="src" placeholder="Source" v-model="src">
+                <input type="text" name="src" placeholder="Source" v-model="src" required>
             </div>
             <div class="field">
                 <div class="ui selection dropdown" v-bind:class="{ loading: categories === [] }">
-                    <input type="hidden" name="category" @change="categorySet">
+                    <input type="hidden" name="category" @change="categorySet" required>
                     <i class="dropdown icon"></i>
                     <div class="default text">Category</div>
                     <div class="menu">
@@ -31,7 +31,8 @@ export default {
             categories: [],
             src: '',
             image: null,
-            category: ''
+            category: '',
+            csrf: ''
         };
     },
 
@@ -50,6 +51,7 @@ export default {
             formData.append('image', this.image);
             formData.append('src', this.src);
             formData.append('category', this.category);
+            formData.append('_token', this.csrf);
             console.log($('.ui.form').serialize());
             axios.post('/api/image', formData, {
                 headers: {
@@ -80,6 +82,9 @@ export default {
         $('.ui.dropdown').dropdown();
         axios.get('/api/categories').then(res => {
             this.categories = res.data;
+        });
+        axios.get('/api/csrftoken').then(res => {
+            this.csrf = res.data.token;
         });
     }
 }

@@ -1,9 +1,15 @@
 <template>
     <div class="ui segment">
-        <img :src="'/storage/' + image.path" @click="reload">
-        <p>
-            <a :href="'/storage/' + image.path">{{ image.name }}</a> from <em>{{ image.src }}</em>
-        </p>
+        <div v-if="image.err">
+            <div class="ui error message">{{ image.err }}</div>
+            <br/>
+        </div>
+        <div v-else>
+            <img :src="'/storage/' + image.path" class="ui fluid image" @click="reload">
+            <p>
+                <a :href="'/storage/' + image.path">{{ image.name }}</a> from <em>{{ image.src }}</em>
+            </p>
+        </div>
         <select id="category" class="ui dropdown" @change="setCategory">
             <option value="default" selected>All (Default)</option>
             <option v-for="category in categories" :value="category.slug" v-text="category.name"></option>
@@ -103,9 +109,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-img {
-    max-width: 100%;
-}
-</style>

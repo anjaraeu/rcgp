@@ -20,6 +20,9 @@ Route::group(['middleware' => ['auth:web']], function () {
     Route::post('/api/image', 'APIController@uploadImage');
     Route::post('/api/categories', 'APIController@createCategory');
     Route::get('/api/loggedin', 'APIController@getUser');
+    Route::get('/api/csrftoken', 'APIController@getCSRF');
+    Route::get('/api/images', 'APIController@getImages');
+    Route::delete('/api/image/{imageId}', 'APIController@deleteImage');
 });
 
 Route::get('/', function () {

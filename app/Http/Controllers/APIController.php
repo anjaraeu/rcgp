@@ -15,7 +15,12 @@ class APIController extends Controller
      * @return Illuminate\Http\Response
      */
     public function getRandomImage() {
-        $img = Image::all()->random();
+        $img = Image::all();
+        if ($img->count() > 0) {
+            $img = $img->random();
+        } else {
+            return response()->json(['err' => 'So sad, no images!']);
+        }
         $img->load('category');
         return response()->json($img);
     }
@@ -26,7 +31,12 @@ class APIController extends Controller
      * @param string $category Category
      */
     public function getRandomImageFiltered($category) {
-        $img = Category::where('slug', $category)->first()->images->random();
+        $img = Category::where('slug', $category)->first()->images;
+        if ($img->count() > 0) {
+            $img = $img->random();
+        } else {
+            return response()->json(['err' => 'So sad, no images in this category!']);
+        }
         return response()->json($img);
     }
 
@@ -83,5 +93,26 @@ class APIController extends Controller
             'name' => Auth::user()->name
         ];
         return response()->json($arr);
+    }
+
+    public function getCSRF() {
+        return response()->json(['token' => csrf_token()]);
+    }
+
+    public function getImages(Request $request) {
+        $imgs = Image::all();
+        if ($request->input('page') && $request->input('epp')) {
+            $res = $imgs->forPage($request->input('page'), $request->input('epp'));
+            return response()->json(['results' => $res->all()]);
+        } else {
+            $res = $imgs->forPage(1, 5);
+            return response()->json(['results' => $res->all()]);
+        }
+    }
+
+    public function deleteImage(Request $request, $imgid) {
+        $img = Image::findOrFail($imgid);
+        $img->delete();
+        return response()->json('ok');
     }
 }
