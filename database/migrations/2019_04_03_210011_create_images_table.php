@@ -15,9 +15,9 @@ class CreateImagesTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('uploader_id')->unsigned();
+            $table->bigInteger('uploader_id')->unsigned();
             $table->foreign('uploader_id')->references('id')->on('users');
-            $table->integer('category_id')->unsigned();
+            $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->string('path');
             $table->string('name');
