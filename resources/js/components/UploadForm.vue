@@ -55,6 +55,22 @@ export default {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
+            }).then(res => {
+                new Noty({
+                    type: 'success',
+                    layout: 'topRight',
+                    theme: 'metroui',
+                    timeout: 2500,
+                    text: '<i class="check icon"></i> Uploaded!'
+                }).show();
+            }).catch(err => {
+                new Noty({
+                    type: 'error',
+                    layout: 'topRight',
+                    theme: 'metroui',
+                    timeout: 2500,
+                    text: '<i class="exclamation triangle icon"></i> Cannot add image, are you logged in?'
+                }).show();
             });
             return true;
         }

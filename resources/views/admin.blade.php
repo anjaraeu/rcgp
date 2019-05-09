@@ -5,14 +5,16 @@
         <img style="position: absolute; top: 0; right: 0; border: 0;" src="/img/forkme.png" alt="Fork me on GitHub" data-canonical-src="/img/forkme2.png">
     </a>
 
-    <ul>
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/login">Login</router-link></li>
-        <li><router-link to="/new/image">New image</router-link></li>
-        <li><router-link to="/new/category">New category</router-link></li>
-    </ul>
-
     <div class="ui container">
+        <div class="ui inverted secondary menu">
+            <router-link class="item" to="/admin">Dashboard</router-link>
+            <router-link class="item" to="/login">Login</router-link>
+            <router-link class="item" to="/new/image">New image</router-link>
+            <router-link class="item" to="/new/category">New category</router-link>
+            <div class="right menu">
+                <a href="/" class="item">Back to site</a>
+            </div>
+        </div>
         <router-view></router-view>
     </div>
 @endsection

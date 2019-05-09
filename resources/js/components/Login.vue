@@ -2,7 +2,10 @@
     <div class="ui segment">
         <h2 class="ui center aligned header">Login</h2>
 
-        <form method="POST" class="ui form" @submit.prevent="submitForm">
+        <div class="ui message" v-if="user.ok">
+            <p>Already logged in!</p>
+        </div>
+        <form method="POST" class="ui form" @submit.prevent="submitForm" v-else>
             <div class="field">
                 <label for="email">E-Mail Address</label>
                 <input id="email" type="email" name="email" value="" required autofocus autocomplete="email" v-model="email">
@@ -40,7 +43,8 @@ export default {
         return {
             email: '',
             password: '',
-            remember: false
+            remember: false,
+            user: {ok: false, name: ''}
         }
     },
 
@@ -56,6 +60,9 @@ export default {
 
     mounted() {
         $('.ui.checkbox').checkbox();
+        axios.get('/api/loggedin').then(res => {
+            this.user = res.data;
+        });
     }
 }
 </script>

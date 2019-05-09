@@ -24,10 +24,16 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 var router = new VueRouter({
+    mode: 'history',
     routes: [
         { path: '/', component: require('./components/Home.vue').default },
+        { path: '/src', component: require('./components/ImageSources.vue').default },
         { path: '/login', component: require('./components/Login.vue').default },
+        { path: '/about', component: require('./components/About.vue').default },
+        { path: '/admin', component: require('./components/Admin.vue').default },
+        { path: '/img/:imgid', component: require('./components/Home.vue').default },
         { path: '/new/image', component: require('./components/UploadForm.vue').default },
+        { path: '/suggestion', component: require('./components/SuggestImage.vue').default },
         { path: '/new/category', component: require('./components/CategoryForm.vue').default }
     ]
 });

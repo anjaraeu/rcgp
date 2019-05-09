@@ -19,6 +19,7 @@ Route::post('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout'
 Route::group(['middleware' => ['auth:web']], function () {
     Route::post('/api/image', 'APIController@uploadImage');
     Route::post('/api/categories', 'APIController@createCategory');
+    Route::get('/api/loggedin', 'APIController@getUser');
 });
 
 Route::get('/', function () {
@@ -27,4 +28,9 @@ Route::get('/', function () {
 
 Route::get('/admin', function() {
     return view('admin');
+});
+
+
+Route::fallback(function () {
+    return view('home');
 });

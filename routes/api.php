@@ -23,7 +23,9 @@ use Illuminate\Http\Request;
 // });
 
 Route::get('/image', 'APIController@getRandomImage');
+Route::get('/image-id/{id}', 'APIController@getImage');
 Route::get('/image/{category}', 'APIController@getRandomImageFiltered');
 
 Route::get('/categories', 'APIController@getCategories');
 
+Route::get('/statistics', 'APIController@getStats');

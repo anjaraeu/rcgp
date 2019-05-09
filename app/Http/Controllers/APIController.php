@@ -30,6 +30,11 @@ class APIController extends Controller
         return response()->json($img);
     }
 
+    public function getImage($imgid) {
+        $img = Image::findOrFail($imgid);
+        return response()->json($img);
+    }
+
     public function uploadImage(Request $request) {
         $file = $request->file('image');
         $img = Image::create([
@@ -62,5 +67,21 @@ class APIController extends Controller
      */
     public function getRawImage() {
         // TODO
+    }
+
+    public function getStats() {
+        $arr = [
+            'images' => Image::all()->count(),
+            'categories' => Category::all()->count()
+        ];
+        return response()->json($arr);
+    }
+
+    public function getUser() {
+        $arr = [
+            'ok' => true,
+            'name' => Auth::user()->name
+        ];
+        return response()->json($arr);
     }
 }

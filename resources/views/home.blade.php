@@ -5,13 +5,15 @@
         <img style="position: absolute; top: 0; right: 0; border: 0;" src="/img/forkme.png" alt="Fork me on GitHub" data-canonical-src="/img/forkme2.png">
     </a>
 
-    <ul>
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/src">Sources of images</router-link></li>
-        <li><router-link to="/suggestion">Suggest an image</router-link></li>
-    </ul>
-
     <div class="ui container">
+        <div class="ui inverted secondary menu">
+            <router-link class="item" to="/">Home</router-link>
+            <router-link class="item" to="/src">Sources of images</router-link>
+            <router-link class="item" to="/suggestion">Suggest an image</router-link>
+            <div class="right menu">
+                <router-link class="item" to="/about">What's that?</router-link>
+            </div>
+        </div>
         <router-view></router-view>
     </div>
 @endsection

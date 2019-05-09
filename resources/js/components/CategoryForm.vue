@@ -43,9 +43,21 @@ export default {
                 slug: this.slug
             }).then(res => {
                 this.categories.push(res.data);
-                alert('created!');
+                new Noty({
+                    type: 'success',
+                    layout: 'topRight',
+                    theme: 'metroui',
+                    timeout: 2500,
+                    text: '<i class="check icon"></i> Created!'
+                }).show();
             }).catch(res => {
-                alert('error!');
+                new Noty({
+                    type: 'error',
+                    layout: 'topRight',
+                    theme: 'metroui',
+                    timeout: 2500,
+                    text: '<i class="exclamation triangle icon"></i> Cannot create category, are you logged in?'
+                }).show();
             });
             return true;
         }
