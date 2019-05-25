@@ -40,6 +40,36 @@ class APIController extends Controller
         return response()->json($img);
     }
 
+    /**
+     * Retrieve a RAW random image from repository
+     *
+     * @return Illuminate\Http\Response
+     */
+    public function getRawImage() {
+        $img = Image::all();
+        if ($img->count() > 0) {
+            $img = $img->random();
+        } else {
+            return response()->json(['err' => 'So sad, no images!']);
+        }
+        return response()->file(storage_path('app/public/'.$img->path));
+    }
+
+    /**
+     * Retrieve a RAW random image from repository
+     *
+     * @return Illuminate\Http\Response
+     */
+    public function getRawImageFiltered($category) {
+        $img = Category::where('slug', $category)->first()->images;
+        if ($img->count() > 0) {
+            $img = $img->random();
+        } else {
+            return response()->json(['err' => 'So sad, no images in this category!']);
+        }
+        return response()->file(storage_path('app/public/'.$img->path));
+    }
+
     public function getImage($imgid) {
         $img = Image::findOrFail($imgid);
         return response()->json($img);
@@ -68,15 +98,6 @@ class APIController extends Controller
             'slug' => $request->input('slug')
         ]);
         return response()->json($category);
-    }
-
-    /**
-     * Retrieve a raw random image
-     *
-     * @return Illuminate\Http\Response
-     */
-    public function getRawImage() {
-        // TODO
     }
 
     public function getStats() {

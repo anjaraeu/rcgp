@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,9 +20,11 @@ use Illuminate\Http\Request;
 //     Route::post('/categories', 'APIController@createCategory');
 // });
 
+Route::get('/raw', 'APIController@getRawImage');
 Route::get('/image', 'APIController@getRandomImage');
 Route::get('/image-id/{id}', 'APIController@getImage');
 Route::get('/image/{category}', 'APIController@getRandomImageFiltered');
+Route::get('/raw/{category}', 'APIController@getRawImageFiltered');
 
 Route::get('/categories', 'APIController@getCategories');
 
